@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """This module encrypts personal data"""
 import re
 from typing import List
