@@ -23,7 +23,7 @@ class Auth():
     def authorization_header(self, request=None) -> str:
         """Extracts the authorization header from the request"""
         return None
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         """Returns current user based on request"""
         return None
