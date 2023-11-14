@@ -59,3 +59,4 @@ class DB:
         except AttributeError:
             raise ValueError
         self._session.commit()
+        return None
