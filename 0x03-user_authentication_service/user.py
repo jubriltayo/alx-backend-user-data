@@ -11,15 +11,16 @@ Base = declarative_base()
 class User(Base):
     """
         Class User represents a user columns for mySQL table
-
         __tablename__: name of table
-        id: user id
-        email: user email
-        hashed_password: user's encrypted/hashed password
-        seesion_id: id of session
-        reset_token: reset token
+        Methods:
+            None
+        Attributes:
+            id: user id
+            email: user email
+            hashed_password: user's encrypted/hashed password
+            seesion_id: id of session
+            reset_token: reset token
     """
-
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
