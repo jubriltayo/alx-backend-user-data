@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""This module defines an SQLAlchemy model named User"""
-
-
+"""
+This module defines an SQLAlchemy model named User
+"""
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 
@@ -20,7 +20,7 @@ class User(Base):
         reset_token: reset token
     """
 
-    __tablename__ = "users"
+    __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
