@@ -49,3 +49,13 @@ class DB:
             return user
         except AttributeError:
             raise InvalidRequestError
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """Updates user info in database using kwargs"""
+        try:
+            user = self.find_user_by(id=user_id)
+            for key, value in kwargs.items():
+                user.key = value
+        except AttributeError:
+            raise ValueError
+        self._session.commit()
