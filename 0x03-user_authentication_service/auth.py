@@ -16,7 +16,7 @@ def _hash_password(password: str) -> bytes:
 
 
 def _generate_uuid() -> str:
-    """generate random user identifier"""
+    """generate uuid for session and token"""
     return str(uuid4())
 
 
@@ -87,5 +87,16 @@ class Auth:
             token = _generate_uuid()
             self._db.update_user(user.id, reset_token=token)
             return token
+        except Exception:
+            raise ValueError
+
+    def update_password(self, reset_token: str, password: str) -> None:
+        """update password using reset token"""
+        try:
+            user = self._db.find_user_by(reset_token=reset_token)
+            hash_pw = _hash_password(password)
+            self._db.update_user(user.id, _hash_password=hash_pw,
+                                 reset_token=None)
+            return None
         except Exception:
             raise ValueError
