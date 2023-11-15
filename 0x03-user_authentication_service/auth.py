@@ -95,7 +95,7 @@ class Auth:
         try:
             user = self._db.find_user_by(reset_token=reset_token)
             hash_pw = _hash_password(password)
-            self._db.update_user(user.id, _hash_password=hash_pw,
+            self._db.update_user(user.id, hashed_password=hash_pw,
                                  reset_token=None)
             return None
         except Exception:
